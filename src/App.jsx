@@ -25,7 +25,7 @@ function App() {
               <HomePage />
             </Route>
 
-            <Route path="/genres/:id">
+            <Route path="/genres/:genreId">
               <GenrePage />
             </Route>
 

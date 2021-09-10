@@ -15,4 +15,7 @@ const getAllGenres = async () => {
   return response.data.genres;
 };
 
-export { getAllGenres };
+// get all movies by specific genre
+const getMoviesByGenre = async () => {};
+
+export { getAllGenres, getMoviesByGenre };

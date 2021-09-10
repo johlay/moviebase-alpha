@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   height: 80px;
-  width: 80px;
+  width: 100%;
 }
 
 .genre_box:hover {
