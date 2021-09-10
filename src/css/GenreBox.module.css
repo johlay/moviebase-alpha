@@ -1,0 +1,12 @@
+.genre_box {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  width: 80px;
+}
+
+.genre_box:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}

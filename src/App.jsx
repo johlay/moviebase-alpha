@@ -4,6 +4,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import Navigation from "./components/navigation/Navigation";
 import HomePage from "./pages/HomePage";
 import GenresPage from "./pages/GenresPage";
+import GenrePage from "./pages/GenrePage";
 
 function App() {
   // create a react query - client
@@ -22,6 +23,10 @@ function App() {
           <Switch>
             <Route exact path="/">
               <HomePage />
+            </Route>
+
+            <Route path="/genres/:id">
+              <GenrePage />
             </Route>
 
             <Route path="/genres">

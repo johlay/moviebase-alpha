@@ -1,0 +1,20 @@
+.genres_container {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 25% 25% 25%;
+  grid-row-gap: 20px;
+}
+
+@media (min-width: 577px) {
+  .genres_container {
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-row-gap: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .genres_container {
+    grid-template-columns: 15% 15% 15% 15% 15%;
+    /* grid-column-gap: 0px; */
+  }
+}
