@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import HomePage from "./pages/HomePage";
+import Navigation from "./components/navigation/Navigation";
 
 function App() {
   // create a react query - client
@@ -13,11 +13,8 @@ function App() {
 
       <div className="App">
         <BrowserRouter>
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-          </Switch>
+          <Navigation />
+          <Switch>{/* <Route exact path="/"></Route> */}</Switch>
         </BrowserRouter>
       </div>
     </QueryClientProvider>
