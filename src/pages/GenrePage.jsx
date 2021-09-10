@@ -16,6 +16,13 @@ const GenrePage = () => {
         </p>
         <div className="d-flex justify-content-center">
           <Button onClick={() => history.push("/genres")} variant="dark">
+            <span aria-label="an arrow left icon" className="me-1">
+              <FontAwesomeIcon
+                icon={faArrowCircleLeft}
+                size="1x"
+                color="white"
+              />
+            </span>
             Go back
           </Button>
         </div>

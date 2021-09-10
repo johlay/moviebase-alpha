@@ -5,6 +5,7 @@ import Navigation from "./components/navigation/Navigation";
 import HomePage from "./pages/HomePage";
 import GenresPage from "./pages/GenresPage";
 import GenrePage from "./pages/GenrePage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   // create a react query - client
@@ -25,12 +26,16 @@ function App() {
               <HomePage />
             </Route>
 
-            <Route path="/genres/:genreId">
+            <Route exact path="/genres/:genreId">
               <GenrePage />
             </Route>
 
-            <Route path="/genres">
+            <Route exact path="/genres">
               <GenresPage />
+            </Route>
+
+            <Route>
+              <NotFoundPage />
             </Route>
           </Switch>
         </BrowserRouter>
