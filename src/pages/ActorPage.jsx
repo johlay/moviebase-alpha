@@ -19,7 +19,7 @@ const ActorPage = () => {
   return (
     <Container>
       <div className="my-5">
-        <Button variant="dark" onClick={() => history.push("/genres")}>
+        <Button variant="dark" onClick={() => history.goBack()}>
           <span aria-label="an arrow left icon" className="me-1">
             <FontAwesomeIcon icon={faArrowCircleLeft} size="1x" color="white" />
           </span>
