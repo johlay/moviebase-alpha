@@ -56,10 +56,19 @@ const getTopPicksMovies = async () => {
   return response.data;
 };
 
+const getSpecificMovie = async (movieId) => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movieId}?${API_KEY}&append_to_response=credits`
+  );
+
+  return response.data;
+};
+
 export {
   getAllGenres,
   getMoviesByGenre,
   getMoviesInTheatres,
   getPopularMovies,
   getTopPicksMovies,
+  getSpecificMovie,
 };
