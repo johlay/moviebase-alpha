@@ -5,6 +5,8 @@ import dayjs from "dayjs";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const MoviePage = () => {
   const { movieId } = useParams();
@@ -14,16 +16,32 @@ const MoviePage = () => {
 
   console.log(data);
 
-  if (data) {
-    const director = data.credits.crew.find(
-      (person) => person.job === "Director"
-    );
-
-    console.log("director", director);
-  }
-
   return (
     <Container className="text-white">
+      <Row className="my-5">
+        <Col xs="auto">
+          <img
+            src={`https://image.tmdb.org/t/p/w200${data?.poster_path}`}
+            alt="movie poster"
+          />
+        </Col>
+        <Col className="d-flex flex-column justify-content-center">
+          <h2 className="h3">{data?.title}</h2>
+          <p className="m-0">
+            Genres:{" "}
+            <span label="text genres">
+              {data?.genres.map((genre) => genre.name + ", ")}
+            </span>
+          </p>
+          <p>
+            <span aria-label="icon of star with movie rating" className="me-2">
+              <FontAwesomeIcon icon={faStar} size="1x" color="yellow" />
+            </span>
+            {data?.vote_average}
+          </p>
+        </Col>
+      </Row>
+
       <h3 className="h4 ">Overview:</h3>
       <p className="">{data?.overview}</p>
 
