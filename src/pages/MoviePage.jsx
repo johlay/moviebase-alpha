@@ -1,12 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getSpecificMovie } from "../services/TmdbApi";
-import dayjs from "dayjs";
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+
+import MovieDetails from "../components/movie/MovieDetails";
 
 const MoviePage = () => {
   const { movieId } = useParams();
@@ -14,85 +10,10 @@ const MoviePage = () => {
     getSpecificMovie(movieId)
   );
 
-  console.log(data);
-
   return (
-    <Container className="text-white">
-      <Row className="my-5">
-        <Col xs="auto">
-          <img
-            src={`https://image.tmdb.org/t/p/w200${data?.poster_path}`}
-            alt="movie poster"
-          />
-        </Col>
-        <Col className="d-flex flex-column justify-content-center">
-          <h2 className="h3">{data?.title}</h2>
-          <p className="m-0">
-            Genres:{" "}
-            <span label="text genres">
-              {data?.genres.map((genre) => genre.name + ", ")}
-            </span>
-          </p>
-          <p>
-            <span aria-label="icon of star with movie rating" className="me-2">
-              <FontAwesomeIcon icon={faStar} size="1x" color="yellow" />
-            </span>
-            {data?.vote_average}
-          </p>
-        </Col>
-      </Row>
-
-      <h3 className="h4 ">Overview:</h3>
-      <p className="">{data?.overview}</p>
-
-      <p>
-        Director:{" "}
-        <span aria-label="director's name">
-          {
-            data?.credits?.crew.find((person) => person?.job === "Director")
-              ?.name
-          }
-        </span>
-      </p>
-
-      <p>
-        Screenplay:{" "}
-        <span aria-label="movie's screenplay">
-          {
-            data?.credits?.crew.find((person) => person?.job === "Screenplay")
-              ?.name
-          }
-        </span>
-      </p>
-
-      <p>
-        Language:{" "}
-        <span aria-label="movie's language">
-          {data?.spoken_languages[0]?.name}
-        </span>
-      </p>
-
-      <p>
-        Runtime: <span aria-label="movie's runtime">{data?.runtime}min</span>
-      </p>
-
-      <p>
-        Release date:{" "}
-        <span aria-label="text release date">
-          {" "}
-          {dayjs(data?.release_date).format("D MMM YYYY")}
-        </span>
-      </p>
-
-      <hr className="bg-white my-5" />
-
-      {/* <div
-        class="jumbotron text-white jumbotron-image shadow"
-        style={{backgroundImage: "url(https://images.unsplash.com/photo-1552152974-19b9caf99137?fit=crop&w=1350&q=80)"}}
-      >
-        Hello
-      </div> */}
-    </Container>
+    <>
+      <MovieDetails movie={data} />
+    </>
   );
 };
 
