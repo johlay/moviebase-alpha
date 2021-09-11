@@ -1,13 +1,23 @@
 import { useHistory, useLocation } from "react-router-dom";
+import { useQuery } from "react-query";
+import { getMoviesByGenre } from "../services/TmdbApi";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import ErrorAlert from "../components/genres/ErrorAlert";
+import MoviesResults from "../components/genres/MoviesResults";
 
 const GenrePage = () => {
   const history = useHistory();
   const location = useLocation();
+
+  // destructuring object inside of location state.
+  const { state: { genre } = {} } = location ?? {};
+
+  const { data } = useQuery(["get-movies-by-genre", { genre }], () =>
+    getMoviesByGenre(genre?.id)
+  );
 
   if (!location?.state?.genre) return <ErrorAlert />;
 
@@ -22,11 +32,12 @@ const GenrePage = () => {
         </Button>
       </div>
       <p className="text-white h3">
-        List of movies by genre: "
-        <span>{location.state && location?.state?.genre?.name}</span>"
+        List of movies by genre: "<span>{location.state && genre?.name}</span>"
       </p>
 
       <hr className="bg-white" />
+
+      <MoviesResults movies={data} />
     </Container>
   );
 };
