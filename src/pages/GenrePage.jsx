@@ -6,14 +6,14 @@ import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import ErrorAlert from "../components/genres/ErrorAlert";
-import MoviesResults from "../components/genres/MoviesResults";
+import GenreResults from "../components/genres/GenreResults";
 
 const GenrePage = () => {
   const history = useHistory();
   const location = useLocation();
 
   // destructuring object inside of location state.
-  const { state: { genre } = {} } = location ?? {};
+  const { state: { genre } = {} } = location ?? null;
 
   const { data } = useQuery(["get-movies-by-genre", { genre }], () =>
     getMoviesByGenre(genre?.id)
@@ -37,7 +37,7 @@ const GenrePage = () => {
 
       <hr className="bg-white" />
 
-      <MoviesResults movies={data} />
+      <GenreResults movies={data} />
     </Container>
   );
 };
