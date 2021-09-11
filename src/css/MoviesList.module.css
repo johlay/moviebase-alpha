@@ -1,4 +1,19 @@
+.movies_container {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5%;
+  grid-row-gap: 20px;
+}
+
 .movie_poster {
-  height: 160px;
   max-width: 100%;
+}
+
+.movie_card {
+  width: 15rem;
+}
+
+.movie_card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }

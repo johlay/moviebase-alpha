@@ -28,4 +28,16 @@ const getMoviesByGenre = async (genreId, page) => {
   return response.data;
 };
 
-export { getAllGenres, getMoviesByGenre };
+/**
+ * Movies - services related to movies
+ */
+
+const getMoviesInTheatres = async () => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/now_playing?${API_KEY}`
+  );
+
+  return response.data;
+};
+
+export { getAllGenres, getMoviesByGenre, getMoviesInTheatres };

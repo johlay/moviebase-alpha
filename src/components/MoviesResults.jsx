@@ -1,10 +1,10 @@
-import styles from "../css/MoviesList.module.css";
+import styles from "../css/MoviesResults.module.css";
 import dayjs from "dayjs";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-const MoviesList = ({ movies }) => {
+const MoviesResults = ({ movies }) => {
   return (
     <>
       {movies &&
@@ -56,4 +56,4 @@ const MoviesList = ({ movies }) => {
   );
 };
 
-export default MoviesList;
+export default MoviesResults;

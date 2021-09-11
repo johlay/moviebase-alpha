@@ -1,9 +1,9 @@
-import MoviesList from "../MoviesList";
+import MoviesResults from "../MoviesResults";
 
 const GenreResults = ({ movies }) => {
   return (
     <>
-      <MoviesList movies={movies} />
+      <MoviesResults movies={movies} />
     </>
   );
 };
