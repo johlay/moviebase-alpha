@@ -2,21 +2,18 @@ import styles from "../../css/MovieActors.module.css";
 import { useHistory } from "react-router";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
-// If there is no profile picture then return null
-
-const MovieActors = ({ actors }) => {
+const MovieActorDetail = () => {
   const history = useHistory();
 
   return (
-    <Container className="text-white my-5">
-      <h3 className="h4 ">Actors</h3>
-
-      <Row className="my-4">
+    <>
+      <Row className="d-flex justify-content-around my-4">
         {actors &&
           actors.map((actor) => {
+            console.log("actor", actor);
+
             if (actor.profile_path === null) return null;
 
             return (
@@ -40,8 +37,8 @@ const MovieActors = ({ actors }) => {
             );
           })}
       </Row>
-    </Container>
+    </>
   );
 };
 
-export default MovieActors;
+export default MovieActorDetail;

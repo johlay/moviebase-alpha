@@ -7,6 +7,7 @@ import GenresPage from "./pages/GenresPage";
 import GenrePage from "./pages/GenrePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import MoviePage from "./pages/MoviePage";
+import ActorPage from "./pages/ActorPage";
 
 function App() {
   // create a react query - client
@@ -25,6 +26,10 @@ function App() {
           <Switch>
             <Route exact path="/">
               <HomePage />
+            </Route>
+
+            <Route path="/actors/:actorId">
+              <ActorPage />
             </Route>
 
             <Route path="/movies/:movieId">

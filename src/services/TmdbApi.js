@@ -64,6 +64,18 @@ const getSpecificMovie = async (movieId) => {
   return response.data;
 };
 
+/**
+ * Actor - services related to specific actor
+ */
+
+const getActorInformation = async (actorId) => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/person/${actorId}?${API_KEY}`
+  );
+
+  return response.data;
+};
+
 export {
   getAllGenres,
   getMoviesByGenre,
@@ -71,4 +83,5 @@ export {
   getPopularMovies,
   getTopPicksMovies,
   getSpecificMovie,
+  getActorInformation,
 };
