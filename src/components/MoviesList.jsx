@@ -11,25 +11,25 @@ const MoviesList = ({ movies }) => {
         movies.results.map((movie) => {
           return (
             <Row className="rounded bg-white g-0 my-4" key={movie.id}>
-              <Col className="me-2" xs="auto">
+              <Col xs="auto">
                 <img
                   className={`${styles.movie_poster}`}
                   src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                   alt="movie poster"
                 />
               </Col>
-              <Col className="d-flex flex-column justify-content-center">
+              <Col className="d-flex flex-column justify-content-center ms-2">
                 <h3 className="h5 m-0">{movie.title}</h3>
                 <p>
                   {movie.overview.split(" ", 7).map((word) => word + " ")}...
                 </p>
                 <p className="m-0">
                   <span className="fw-bold" aria-label="text">
-                    Genres:
+                    Original language:{" "}
                   </span>
-                  {/* <span aria-label="the movie's genres">
-                    Action, Science Fiction, Adventure
-                  </span> */}
+                  <span aria-label="the movie's language">
+                    {movie.original_language.toUpperCase()}
+                  </span>
                 </p>
                 <p>
                   <span className="fw-bold" aria-label="text">
