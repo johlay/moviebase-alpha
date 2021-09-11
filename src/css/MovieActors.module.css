@@ -1,0 +1,8 @@
+.actor_card {
+  width: 10rem;
+}
+
+.actor_card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
