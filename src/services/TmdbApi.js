@@ -40,4 +40,17 @@ const getMoviesInTheatres = async () => {
   return response.data;
 };
 
-export { getAllGenres, getMoviesByGenre, getMoviesInTheatres };
+const getPopularMovies = async () => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/popular?${API_KEY}`
+  );
+
+  return response.data;
+};
+
+export {
+  getAllGenres,
+  getMoviesByGenre,
+  getMoviesInTheatres,
+  getPopularMovies,
+};
