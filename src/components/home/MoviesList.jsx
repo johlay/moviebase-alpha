@@ -20,11 +20,11 @@ const MoviesList = ({ movies }) => {
               <Card.Img
                 className={`${styles.movie_poster}`}
                 variant="top"
-                src={`https://image.tmdb.org/t/p/w200${movie?.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                 alt="movie poster"
               />
               <Card.Body>
-                <Card.Title>{movie.title}</Card.Title>
+                <Card.Title>{movie?.title}</Card.Title>
                 <Card.Text>
                   <span
                     aria-label="icon of star with movie rating"

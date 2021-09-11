@@ -48,9 +48,18 @@ const getPopularMovies = async () => {
   return response.data;
 };
 
+const getTopPicksMovies = async () => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/top_rated?${API_KEY}`
+  );
+
+  return response.data;
+};
+
 export {
   getAllGenres,
   getMoviesByGenre,
   getMoviesInTheatres,
   getPopularMovies,
+  getTopPicksMovies,
 };
