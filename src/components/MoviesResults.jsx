@@ -1,10 +1,12 @@
 import styles from "../css/MoviesResults.module.css";
+import { useHistory } from "react-router";
 import dayjs from "dayjs";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 const MoviesResults = ({ movies }) => {
+  const history = useHistory();
   return (
     <>
       {movies &&
@@ -45,7 +47,11 @@ const MoviesResults = ({ movies }) => {
                 xs={3}
                 s={2}
               >
-                <Button variant="dark" className=" mb-2 me-3">
+                <Button
+                  variant="dark"
+                  className=" mb-2 me-3"
+                  onClick={() => history.push(`/movies/${movie.id}`)}
+                >
                   Learn more
                 </Button>
               </Col>
