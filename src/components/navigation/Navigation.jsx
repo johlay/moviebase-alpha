@@ -6,7 +6,7 @@ const Navigation = () => {
     <Navbar bg="dark" variant="dark">
       <Container fluid>
         <div className="navbar-brand">
-          <h1 className="h2">Moviebase Alpha</h1>
+          <h1 className="h2 pe-none">Moviebase Alpha</h1>
         </div>
 
         <Nav className="me-auto">

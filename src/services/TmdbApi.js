@@ -6,6 +6,11 @@ import axios from "axios";
 
 const API_KEY = "api_key=" + process.env.REACT_APP_TMDB_API_KEY;
 
+
+/**
+ *  Genres - services related to genres
+ */
+
 // get all genres for movies
 const getAllGenres = async () => {
   const response = await axios.get(
