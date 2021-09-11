@@ -20,9 +20,9 @@ const getAllGenres = async () => {
 };
 
 // get all movies by specific genre
-const getMoviesByGenre = async (genreId) => {
+const getMoviesByGenre = async (genreId, page) => {
   const response = await axios.get(
-    `https://api.themoviedb.org/3/discover/movie?${API_KEY}&sort_by=popularity.desc&with_genres=${genreId}`
+    `https://api.themoviedb.org/3/discover/movie?${API_KEY}&sort_by=popularity.desc&with_genres=${genreId}&page=${page}`
   );
 
   return response.data;

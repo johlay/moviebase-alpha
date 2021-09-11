@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import Navigation from "./components/navigation/Navigation";
+import Navigation from "./components/partials/Navigation";
 import HomePage from "./pages/HomePage";
 import GenresPage from "./pages/GenresPage";
 import GenrePage from "./pages/GenrePage";
