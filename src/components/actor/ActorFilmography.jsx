@@ -3,13 +3,14 @@ import { getActorFilmography } from "../../services/TmdbApi";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import ActorCastDetails from "./ActorCastDetails";
+import ActorCrewDetails from "./ActorCrewDetails";
 
 const ActorFilmography = ({ actorId }) => {
   const { data } = useQuery(["get-actor-filmography", actorId], () =>
     getActorFilmography(actorId)
   );
 
-  console.log("data", data);
+  console.log("actor filmography", data);
 
   return (
     <>
@@ -31,7 +32,9 @@ const ActorFilmography = ({ actorId }) => {
             eventKey="production"
             title="Production"
             tabClassName="text-white fw-bold bg-dark"
-          ></Tab>
+          >
+            <ActorCrewDetails crew={data?.crew} />
+          </Tab>
         </Tabs>
       </div>
     </>

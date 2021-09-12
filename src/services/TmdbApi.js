@@ -80,7 +80,7 @@ const getActorFilmography = async (actorId) => {
   const response = await axios.get(
     `https://api.themoviedb.org/3/person/${actorId}/movie_credits?api_key=3957710d523b2f23506b71db6df8171d`
   );
-  console.log("response", response);
+
   // sort returned data from API so that latest release date of movies (as cast) are placed at first position of array.
   const sortCastMoviesByLatestReleaseDate = await response.data.cast.sort(
     (a, b) => {

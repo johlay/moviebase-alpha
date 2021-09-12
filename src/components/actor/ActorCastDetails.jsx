@@ -1,9 +1,7 @@
 import { NavLink } from "react-router-dom";
-import ListGroup from "react-bootstrap/ListGroup";
 import Table from "react-bootstrap/Table";
 
 const ActorCastDetails = ({ cast }) => {
-  console.log("cast", cast);
   return (
     <Table className="text-white" bordered size="sm" variant="dark">
       <thead>
@@ -16,7 +14,7 @@ const ActorCastDetails = ({ cast }) => {
       <tbody>
         {cast?.map((movie) => {
           return (
-            <tr>
+            <tr key={movie.id}>
               <td>{movie.release_date}</td>
               <td>{movie.title}</td>
               <td className="text-center">
