@@ -11,7 +11,7 @@ const SearchPage = () => {
   const [page, setPage] = useUrlSearchParams({ query: "", page: "" });
   const [resultText, setResultText] = useState("");
 
-  const { data, isSuccess, refetch } = useQuery(
+  const { data, isLoading, isSuccess, refetch } = useQuery(
     ["get-movies-by-search"],
     () => search(page?.query, page?.page),
     { keepPreviousData: true }
@@ -34,7 +34,7 @@ const SearchPage = () => {
 
   return (
     <Container>
-      <SearchField handleSubmit={handleSubmit} />
+      <SearchField handleSubmit={handleSubmit} isLoading={isLoading} />
 
       {data ? (
         <>
@@ -42,7 +42,9 @@ const SearchPage = () => {
           <hr className="bg-white" />
         </>
       ) : (
-        <p className="text-white h3">Enter at least one character to search.</p>
+        <p className="text-white h3">
+          Enter at least one character to be able to search.
+        </p>
       )}
 
       {isSuccess && <MoviesResults movies={data} />}

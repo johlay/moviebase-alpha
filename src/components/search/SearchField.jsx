@@ -4,7 +4,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
 
-const SearchField = ({ handleSubmit }) => {
+const SearchField = ({ handleSubmit, isLoading }) => {
   const searchRef = useRef("");
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const SearchField = ({ handleSubmit }) => {
             ref={searchRef}
             // onChange={(e) => setSearchText(e.target.value)}
           />
-          <Button variant="dark" type="submit">
+          <Button disabled={isLoading} variant="dark" type="submit">
             Search
           </Button>
         </InputGroup>
