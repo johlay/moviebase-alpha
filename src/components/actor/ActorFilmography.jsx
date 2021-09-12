@@ -10,8 +10,6 @@ const ActorFilmography = ({ actorId }) => {
     getActorFilmography(actorId)
   );
 
-  console.log("actor filmography", data);
-
   return (
     <>
       <div className="text-white pt-5">

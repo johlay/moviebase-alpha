@@ -2,6 +2,9 @@ import { NavLink } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 
 const ActorCrewDetails = ({ crew }) => {
+  // If there are no information in the array then return a message.
+  if (crew?.length === 0)
+    return <p className="text-white fs-4">No results...</p>;
   return (
     <>
       <Table className="text-white" bordered size="sm" variant="dark">
