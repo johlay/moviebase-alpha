@@ -4,8 +4,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-
-// If there is no profile picture then return null
+// import MovieActorDetail from "./MovieActorDetail";
 
 const MovieActors = ({ actors }) => {
   const history = useHistory();
@@ -19,6 +18,9 @@ const MovieActors = ({ actors }) => {
           actors.map((actor) => {
             if (actor.profile_path === null) return null;
 
+            {
+              /* <><MovieActorDetail actor={actor} id={actor.id}/></> */
+            }
             return (
               <Col xs="auto" key={actor?.id}>
                 <Card

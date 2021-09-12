@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import ActorDetails from "../components/actor/ActorDetails";
 
 const ActorPage = () => {
   const { actorId } = useParams();
@@ -14,10 +15,8 @@ const ActorPage = () => {
     getActorInformation(actorId)
   );
 
-  console.log(data);
-
   return (
-    <Container>
+    <Container className="my-5">
       <div className="my-5">
         <Button variant="dark" onClick={() => history.goBack()}>
           <span aria-label="an arrow left icon" className="me-1">
@@ -26,6 +25,8 @@ const ActorPage = () => {
           Go back
         </Button>
       </div>
+
+      <ActorDetails actor={data} />
     </Container>
   );
 };

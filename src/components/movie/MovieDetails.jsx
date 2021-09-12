@@ -9,7 +9,6 @@ const MovieDetails = ({ movie }) => {
   return (
     <>
       <div
-        fluid
         className="container-fluid d-flex flex-row align-items-end text-white mb-5 "
         style={{
           height: "800px",
@@ -22,7 +21,10 @@ const MovieDetails = ({ movie }) => {
           <Row className="my-5">
             <Col xs="auto">
               <img
-                src={`https://image.tmdb.org/t/p/w200${movie?.poster_path}`}
+                src={
+                  movie &&
+                  `https://image.tmdb.org/t/p/w200${movie?.poster_path}`
+                }
                 alt="movie poster"
               />
             </Col>
