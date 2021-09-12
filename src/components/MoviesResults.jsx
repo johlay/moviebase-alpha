@@ -1,12 +1,10 @@
 import styles from "../css/MoviesResults.module.css";
-import { useHistory } from "react-router";
 import dayjs from "dayjs";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { NavLink } from "react-router-dom";
 
 const MoviesResults = ({ movies }) => {
-  const history = useHistory();
   return (
     <>
       {movies &&

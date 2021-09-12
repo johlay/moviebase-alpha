@@ -12,6 +12,7 @@ const ActorCrewDetails = ({ crew }) => {
           <tr>
             <th>Release year</th>
             <th>Movie title</th>
+            <th>Role</th>
             <th className="text-center">Learn more</th>
           </tr>
         </thead>
@@ -21,6 +22,7 @@ const ActorCrewDetails = ({ crew }) => {
               <tr key={movie.id}>
                 <td>{movie.release_date}</td>
                 <td>{movie.title}</td>
+                <td>{movie.job}</td>
                 <td className="text-center">
                   <NavLink
                     className="btn btn-light text-dark"

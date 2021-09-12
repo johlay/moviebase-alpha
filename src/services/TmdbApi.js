@@ -111,6 +111,21 @@ const getActorFilmography = async (actorId) => {
   };
 };
 
+/**
+ * Search - services related to search
+ */
+
+const search = async (query, page) => {
+  // checks if query and page is empty strings.
+  if (query.length === 0 || page.length === 0) return null;
+
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/search/movie?api_key=3957710d523b2f23506b71db6df8171d&query=${query}&page=${page}`
+  );
+
+  return response.data;
+};
+
 export {
   getAllGenres,
   getMoviesByGenre,
@@ -120,4 +135,5 @@ export {
   getSpecificMovie,
   getActorInformation,
   getActorFilmography,
+  search,
 };

@@ -13,8 +13,13 @@ const Navigation = () => {
           <NavLink className="nav-link" exact to="/">
             Home
           </NavLink>
+
           <NavLink className="nav-link" to="/genres">
             Genres
+          </NavLink>
+
+          <NavLink className="nav-link" to="/search">
+            Search
           </NavLink>
         </Nav>
       </Container>

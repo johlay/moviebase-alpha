@@ -15,6 +15,7 @@ const Pagination = ({ page, setPage, totalPages }) => {
         previousLinkClassName="btn btn-dark me-2"
         nextClassName="list-unstyled"
         nextLinkClassName="btn btn-dark ms-2"
+        forcePage={page.page - 1}
         initialPage={page.page - 1}
         pageCount={totalPages}
         onPageChange={(currentPage) =>
