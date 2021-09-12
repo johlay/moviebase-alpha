@@ -1,5 +1,8 @@
 import { useQuery } from "react-query";
 import { getActorFilmography } from "../../services/TmdbApi";
+import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
+import ActorCastDetails from "./ActorCastDetails";
 
 const ActorFilmography = ({ actorId }) => {
   const { data } = useQuery(["get-actor-filmography", actorId], () =>
@@ -15,8 +18,21 @@ const ActorFilmography = ({ actorId }) => {
           <u>Filmography:</u>
         </h3>
         <hr />
-        <h4 className="h5 ps-3 mb-4">Cast:</h4>
-        <h4 className="h5 ps-3 mb-4">Crew:</h4>
+
+        <Tabs id="tab_actor" defaultActiveKey="acting" className="my-5">
+          <Tab
+            eventKey="acting"
+            title="Acting"
+            tabClassName="text-white fw-bold bg-dark me-1"
+          >
+            <ActorCastDetails cast={data?.cast} />
+          </Tab>
+          <Tab
+            eventKey="production"
+            title="Production"
+            tabClassName="text-white fw-bold bg-dark"
+          ></Tab>
+        </Tabs>
       </div>
     </>
   );
