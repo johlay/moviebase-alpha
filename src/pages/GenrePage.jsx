@@ -19,7 +19,7 @@ const GenrePage = () => {
   // destructuring object inside of location state.
   const { state: { genre } = {} } = location ?? null;
 
-  const { data, refetch } = useQuery(
+  const { data, isSuccess, refetch } = useQuery(
     ["get-movies-by-genre", { genre }],
     () => getMoviesByGenre(genre?.id, page.page),
     { keepPreviousData: true }
@@ -48,7 +48,7 @@ const GenrePage = () => {
 
       <hr className="bg-white" />
 
-      <GenreResults movies={data} />
+      {isSuccess && <GenreResults movies={data} />}
       <Pagination
         page={page}
         setPage={setPage}
