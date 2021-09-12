@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import ActorDetails from "../components/actor/ActorDetails";
+import ActorFilmography from "../components/actor/ActorFilmography";
 
 const ActorPage = () => {
   const { actorId } = useParams();
@@ -27,6 +28,7 @@ const ActorPage = () => {
       </div>
 
       <ActorDetails actor={data} />
+      <ActorFilmography actorId={actorId} />
     </Container>
   );
 };
