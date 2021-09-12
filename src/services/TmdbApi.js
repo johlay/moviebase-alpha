@@ -83,12 +83,26 @@ const getActorFilmography = async (actorId) => {
   console.log("response", response);
   // sort returned data from API so that latest release date of movies (as cast) are placed at first position of array.
   const sortCastMoviesByLatestReleaseDate = await response.data.cast.sort(
-    (a, b) => parseInt(b.release_date) - parseInt(a.release_date)
+    (a, b) => {
+      // If 'a' or 'b' has an empty string as value. Sort it and place it at the end of the array.
+      if (a.release_date === "") return 1;
+      if (b.release_date === "") return -1;
+
+      // If there is a 'truthty' value in both a.release_date and b.release_date. Place the latest movie above the other one.
+      return parseInt(b.release_date) - parseInt(a.release_date);
+    }
   );
 
   // sort returned data from API so that latest release date of movies (as crew) are placed at first position of array.
   const sortCrewMoviesByLatestReleaseDate = await response.data.crew.sort(
-    (a, b) => parseInt(b.release_date) - parseInt(a.release_date)
+    (a, b) => {
+      // If 'a' or 'b' has an empty string as value. Sort it and place it at the end of the array.
+      if (a.release_date === "") return 1;
+      if (b.release_date === "") return -1;
+
+      // If there is a 'truthty' value in both a.release_date and b.release_date. Place the latest movie above the other one.
+      return parseInt(b.release_date) - parseInt(a.release_date);
+    }
   );
 
   return {
