@@ -1,7 +1,7 @@
 .movies_container {
   display: grid;
-  justify-content: space-between;
-  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5%;
+  justify-content: space-around;
+  grid-template-columns: 40% 40%;
   grid-row-gap: 20px;
 }
 
@@ -10,10 +10,57 @@
 }
 
 .movie_card {
-  width: 15rem;
+  width: 9rem;
 }
 
 .movie_card:hover {
   cursor: pointer;
   transform: scale(1.05);
 }
+
+/* apply styles starting from small devices */
+@media (min-width: 577px) {
+  .movies_container {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 28.5% 28.5% 28.5%;
+     grid-row-gap: 20px;
+  }
+
+  .movie_card {
+    width: 11rem;
+  }
+}
+
+/* apply styles starting from large devices (desktops...) */
+@media (min-width: 992px) {
+  .movies_container {
+    grid-template-columns: 20% 20% 20% 20%;
+  }
+
+  .movie_card {
+    width: 11.5rem;
+  }
+}
+
+/* apply styles starting from extra large devices (large desktops... */
+@media (min-width: 1200px) {
+  .movies_container {
+    grid-template-columns: 15% 15% 15% 15% 15%;
+  }
+
+  .movie_card {
+    width: 12rem;
+  }
+}
+
+/* apply styles starting from xx-large devices (larger desktops...) */
+@media (min-width: 1400px) {
+  .movies_container {
+    grid-template-columns: 17.5% 17.5% 17.5% 17.5% 17.5%;
+  }
+
+  .movie_card {
+    width: 15rem;
+  }
+} ;
