@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getMoviesByGenre } from "../services/TmdbApi";
 import { useUrlSearchParams } from "use-url-search-params";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
@@ -35,12 +34,12 @@ const GenrePage = () => {
   return (
     <Container>
       <div className="my-5">
-        <Button variant="dark" onClick={() => history.push("/genres")}>
+        <NavLink className="btn btn-dark" to="/genres">
           <span aria-label="an arrow left icon" className="me-1">
             <FontAwesomeIcon icon={faArrowCircleLeft} size="1x" color="white" />
           </span>
           Go back
-        </Button>
+        </NavLink>
       </div>
       <p className="text-white h3">
         List of movies by genre: "<span>{location.state && genre?.name}</span>"

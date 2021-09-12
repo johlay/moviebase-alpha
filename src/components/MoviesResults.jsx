@@ -1,9 +1,9 @@
 import styles from "../css/MoviesResults.module.css";
 import { useHistory } from "react-router";
 import dayjs from "dayjs";
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import { NavLink } from "react-router-dom";
 
 const MoviesResults = ({ movies }) => {
   const history = useHistory();
@@ -47,13 +47,12 @@ const MoviesResults = ({ movies }) => {
                 xs={3}
                 s={2}
               >
-                <Button
-                  variant="dark"
-                  className=" mb-2 me-3"
-                  onClick={() => history.push(`/movies/${movie.id}`)}
+                <NavLink
+                  className="btn btn-dark mb-2 me-3"
+                  to={`/movies/${movie.id}`}
                 >
                   Learn more
-                </Button>
+                </NavLink>
               </Col>
             </Row>
           );
