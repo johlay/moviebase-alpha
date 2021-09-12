@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { search } from "../services/TmdbApi";
 import { useUrlSearchParams } from "use-url-search-params";
@@ -9,6 +9,7 @@ import Pagination from "../components/partials/Pagination";
 
 const SearchPage = () => {
   const [page, setPage] = useUrlSearchParams({ query: "", page: "" });
+  const [resultText, setResultText] = useState("");
 
   const { data, isSuccess, refetch } = useQuery(
     ["get-movies-by-search"],
@@ -18,6 +19,9 @@ const SearchPage = () => {
 
   const handleSubmit = (e, text) => {
     e.preventDefault();
+
+    // show user what they searched for
+    setResultText(text);
 
     // replace searchParams with new values.
     setPage({ page: 1, query: text });
@@ -31,7 +35,18 @@ const SearchPage = () => {
   return (
     <Container>
       <SearchField handleSubmit={handleSubmit} />
+
+      {data ? (
+        <>
+          <p className="text-white h3">Results for: "{resultText}"</p>
+          <hr className="bg-white" />
+        </>
+      ) : (
+        <p className="text-white h3">Enter at least one character to search.</p>
+      )}
+
       {isSuccess && <MoviesResults movies={data} />}
+
       {data && (
         <Pagination
           page={page}
