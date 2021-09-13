@@ -4,7 +4,7 @@ const useLocalStorage = (key, initialValue) => {
   const [value, setValue] = useState(() => {
     try {
       // try to get data from local storage by "key"
-      const jsonValue = JSON.parse(localStorage.getItem(key));
+      const jsonValue = localStorage.getItem(key);
 
       // parse stored json value or if  there is none then return initialValue
       return jsonValue ? JSON.parse(jsonValue) : initialValue;

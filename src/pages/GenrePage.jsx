@@ -10,27 +10,32 @@ import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import ErrorAlert from "../components/genres/ErrorAlert";
 import GenreResults from "../components/genres/GenreResults";
 import Pagination from "../components/partials/Pagination";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const GenrePage = () => {
   const history = useHistory();
   const location = useLocation();
   const [page, setPage] = useUrlSearchParams({ page: 1 });
+  const [value, setValue] = useLocalStorage("genre");
 
   // destructuring object inside of location state.
   const { state: { genre } = {} } = location ?? null;
 
   const { data, isSuccess, refetch } = useQuery(
     ["get-movies-by-genre", { genre }, page],
-    () => getMoviesByGenre(genre?.id, page.page),
+    () => getMoviesByGenre(value?.id, page.page),
     { keepPreviousData: true }
   );
 
   useEffect(() => {
+    // if "genre" can be found in location's state then save it to local storage.
+    if (genre) setValue(genre);
+
     // refetch data when page is changed.
     refetch();
   }, [page]);
 
-  if (!location?.state?.genre) return <ErrorAlert />;
+  if (!location?.state?.genre && !value) return <ErrorAlert />;
 
   return (
     <Container>
@@ -43,7 +48,7 @@ const GenrePage = () => {
         </Button>
       </div>
       <p className="text-white h3">
-        List of movies by genre: "<span>{location.state && genre?.name}</span>"
+        List of movies by genre: "<span>{value?.name}</span>"
       </p>
 
       <hr className="bg-white" />
