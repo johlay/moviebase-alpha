@@ -20,7 +20,7 @@ const GenrePage = () => {
   const { state: { genre } = {} } = location ?? null;
 
   const { data, isSuccess, refetch } = useQuery(
-    ["get-movies-by-genre", { genre }],
+    ["get-movies-by-genre", { genre }, page],
     () => getMoviesByGenre(genre?.id, page.page),
     { keepPreviousData: true }
   );

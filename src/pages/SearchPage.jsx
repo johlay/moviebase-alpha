@@ -8,11 +8,14 @@ import SearchField from "../components/search/SearchField";
 import Pagination from "../components/partials/Pagination";
 
 const SearchPage = () => {
-  const [page, setPage] = useUrlSearchParams({ query: "", page: "" });
+  const [page, setPage] = useUrlSearchParams(
+    { query: "", page: "" },
+    { query: String, page: Number }
+  );
   const [resultText, setResultText] = useState("");
 
   const { data, isLoading, isSuccess, refetch } = useQuery(
-    ["get-movies-by-search"],
+    ["get-movies-by-search", page],
     () => search(page?.query, page?.page),
     { keepPreviousData: true }
   );
