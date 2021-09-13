@@ -35,7 +35,13 @@ const GenrePage = () => {
     refetch();
   }, [page]);
 
-  if (!location?.state?.genre && !value) return <ErrorAlert />;
+  if (!location?.state?.genre && !value)
+    return (
+      <ErrorAlert
+        text="You need to go back and select a genre!"
+        url="/genres"
+      />
+    );
 
   return (
     <Container>
