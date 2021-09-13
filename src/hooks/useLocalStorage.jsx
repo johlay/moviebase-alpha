@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 
 const useLocalStorage = (key, initialValue) => {
   const [value, setValue] = useState(() => {
-    const jsonValue = JSON.parse(localStorage.getItem(key));
+    try {
+      // try to get data from local storage by "key"
+      const jsonValue = JSON.parse(localStorage.getItem(key));
 
-    // If "key" does not exists in local storage then return "initialValue".
-    if (!jsonValue) return initialValue;
-
-    // If "key" does exists in local storage then return the stored value in local storage.
-    if (jsonValue) return jsonValue;
+      // parse stored json value or if  there is none then return initialValue
+      return jsonValue ? JSON.parse(jsonValue) : initialValue;
+    } catch (error) {
+      // if there is error then also return initialValue
+      return initialValue;
+    }
   });
 
   useEffect(() => {
