@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { getSpecificMovie } from "../services/TmdbApi";
 import MovieDetails from "../components/movie/MovieDetails";
 import MovieActors from "../components/movie/MovieActors";
+import SimiliarMovies from "../components/movie/SimiliarMovies";
 
 const MoviePage = () => {
   const { movieId } = useParams();
@@ -14,6 +15,7 @@ const MoviePage = () => {
     <>
       <MovieDetails movie={data} />
       <MovieActors actors={data?.credits?.cast} />
+      <SimiliarMovies movieTitle={data?.title} movieId={movieId && movieId} />
     </>
   );
 };

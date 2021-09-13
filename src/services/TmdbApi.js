@@ -64,6 +64,14 @@ const getSpecificMovie = async (movieId) => {
   return response.data;
 };
 
+const getSimiliarMovies = async (movieId) => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movieId}/similar?${API_KEY}`
+  );
+
+  return response.data;
+};
+
 /**
  * Actor - services related to specific actor
  */
@@ -133,6 +141,7 @@ export {
   getPopularMovies,
   getTopPicksMovies,
   getSpecificMovie,
+  getSimiliarMovies,
   getActorInformation,
   getActorFilmography,
   search,
