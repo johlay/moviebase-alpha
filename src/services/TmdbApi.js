@@ -72,6 +72,14 @@ const getSimiliarMovies = async (movieId) => {
   return response.data;
 };
 
+const getTrendingMoviesByTimeWindow = async (timeWindow) => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/trending/movies/${timeWindow}?${API_KEY}`
+  );
+
+  return response.data;
+};
+
 /**
  * Actor - services related to specific actor
  */
@@ -142,6 +150,7 @@ export {
   getTopPicksMovies,
   getSpecificMovie,
   getSimiliarMovies,
+  getTrendingMoviesByTimeWindow,
   getActorInformation,
   getActorFilmography,
   search,
