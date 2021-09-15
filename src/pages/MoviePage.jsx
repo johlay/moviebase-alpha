@@ -21,8 +21,19 @@ const MoviePage = () => {
       // variable for checking if local storage key: "recently-viewed" contains the same movie.
       const movieExists = value?.results?.some((movie) => movie.id === data.id);
 
-      // check if local storage key: "recently-viewed" contains the same movie. If true, execute early return statement.
-      if (movieExists) return;
+      // check if local storage key: "recently-viewed" contains the same movie. If true, replace that existing movie with index position: 0.
+      if (movieExists) {
+        // create a new movie list EXCEPT the already existing movie.
+        const newList = value?.results?.filter((movie) => movie.id !== data.id);
+
+        // adds the "existing movie" to top position of array (index position: 0)
+        newList.unshift(data);
+
+        // save new list to local storage.
+        setValue(newList);
+
+        return;
+      }
 
       // check if local storage key: "recently-viewed" has 10 movies.
       if (value?.results?.length >= 10) {
