@@ -5,7 +5,6 @@ import { getSpecificMovie } from "../services/TmdbApi";
 import MovieDetails from "../components/movie/MovieDetails";
 import MovieActors from "../components/movie/MovieActors";
 import SimiliarMovies from "../components/movie/SimiliarMovies";
-import RecentlyViewedMovies from "../components/movie/RecentlyViewedMovies";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const MoviePage = () => {
@@ -27,14 +26,12 @@ const MoviePage = () => {
 
       // check if local storage key: "recently-viewed" has 10 movies.
       if (value.results.length >= 10) {
-        console.log("recently-viewed key is containing more than 10 movies");
-
+        // only returns/saves the recently viewed movies (9 movies() from this list which consists of 10 movies.
         const newList = value.results.filter((movie, index) => {
-          // only returns/saves the recently viewed movies (9 movies() from this list which consists of 10 movies.
           if (index < 9) return movie;
         });
 
-        // saves new list to local storage.
+        // save new list to local storage.
         setValue({ results: [data, ...newList] });
 
         return;
@@ -52,7 +49,6 @@ const MoviePage = () => {
       <MovieDetails movie={data} />
       <MovieActors actors={data?.credits?.cast} />
       <SimiliarMovies movieTitle={data?.title} movieId={movieId && movieId} />
-      <RecentlyViewedMovies />
     </>
   );
 };
