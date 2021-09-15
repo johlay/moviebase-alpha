@@ -38,7 +38,7 @@ const TrendingMovies = () => {
                 onClick={() => setTimeWindow("day")}
                 variant="outline-dark"
               >
-                day
+                Day
               </Button>
               <Button
                 active={timeWindow === "week"}
@@ -46,7 +46,7 @@ const TrendingMovies = () => {
                 onClick={() => setTimeWindow("week")}
                 variant="outline-dark"
               >
-                week
+                Week
               </Button>
             </ButtonGroup>
           </Col>
