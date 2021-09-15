@@ -14,7 +14,7 @@ const RecentlyViewedMovies = () => {
       <hr className="bg-white my-5" />
       <h3 className="text-white my-3">Recently Viewed Movies</h3>
 
-      {value && <MoviesList movies={value} />}
+      <MoviesList movies={value} />
     </Container>
   );
 };
