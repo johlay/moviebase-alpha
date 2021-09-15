@@ -25,9 +25,9 @@ const MoviePage = () => {
       if (movieExists) return;
 
       // check if local storage key: "recently-viewed" has 10 movies.
-      if (value.results.length >= 10) {
+      if (value?.results?.length >= 10) {
         // only returns/saves the recently viewed movies (9 movies() from this list which consists of 10 movies.
-        const newList = value.results.filter((movie, index) => {
+        const newList = value?.results?.filter((movie, index) => {
           if (index < 9) return movie;
         });
 
