@@ -7,8 +7,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const SimiliarMovie = ({ movies }) => {
-  console.log("movies", movies);
-
   const leftArrowButton = (
     <FontAwesomeIcon icon={faArrowCircleLeft} size="2x" color="white" />
   );
@@ -29,7 +27,7 @@ const SimiliarMovie = ({ movies }) => {
           movies?.results?.map((movie, index) => {
             if (index < 5) {
               return (
-                <Carousel.Item>
+                <Carousel.Item key={movie.id}>
                   <img
                     className="d-block w-25 mx-auto"
                     src={`https://image.tmdb.org/t/p/w200${movie?.poster_path}`}
