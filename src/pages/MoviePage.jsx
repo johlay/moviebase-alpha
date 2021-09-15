@@ -30,7 +30,7 @@ const MoviePage = () => {
         newList.unshift(data);
 
         // save new list to local storage.
-        setValue(newList);
+        setValue({ results: [...newList] });
 
         return;
       }
