@@ -9,6 +9,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import MoviePage from "./pages/MoviePage";
 import ActorPage from "./pages/ActorPage";
 import SearchPage from "./pages/SearchPage";
+import GlobalLoadingIndicator from "./components/partials/GlobalLoadingIndicator.jsx";
 
 function App() {
   // create a react query - client
@@ -24,6 +25,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Navigation />
+          <GlobalLoadingIndicator />
           <Switch>
             <Route exact path="/">
               <HomePage />
