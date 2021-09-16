@@ -17,11 +17,8 @@ const TrendingMovies = () => {
   );
 
   useEffect(() => {
-    // reset page to 1.
+    // refetch data when user switches between day/week button by resetting page to 1 which in turn triggers refetch().
     setPage({ page: 1 });
-
-    // refetch data when user switches between day/week button.
-    refetch();
   }, [timeWindow]);
 
   useEffect(() => {
