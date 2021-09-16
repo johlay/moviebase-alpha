@@ -2,7 +2,7 @@
 export const intrepretActorGender = (gender) => {
   switch (gender) {
     case 0: {
-      return "???";
+      return "N/A";
     }
     case 1: {
       return "Female";
@@ -12,6 +12,27 @@ export const intrepretActorGender = (gender) => {
     }
     default: {
       break;
+    }
+  }
+};
+
+// check if received information has a length of 0 or undefined. If so, return question marks.
+export const checkInformation = (detail) => {
+  switch (detail?.length) {
+    case 0: {
+      return "N/A";
+    }
+
+    case null: {
+      return "N/A";
+    }
+
+    case undefined: {
+      return "N/A";
+    }
+
+    default: {
+      return detail;
     }
   }
 };

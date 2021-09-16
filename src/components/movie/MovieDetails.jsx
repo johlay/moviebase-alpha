@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { getImage } from "../../helpers";
+import { checkInformation, getImage } from "../../helpers";
 
 const MovieDetails = ({ movie }) => {
   return (
@@ -35,7 +35,9 @@ const MovieDetails = ({ movie }) => {
               <p className="m-0">
                 Genres:{" "}
                 <span label="text genres">
-                  {movie?.genres.map((genre) => genre.name + ", ")}
+                  {checkInformation(
+                    movie?.genres?.map((genre) => genre.name + ", ")
+                  )}
                 </span>
               </p>
               <p>
@@ -54,38 +56,41 @@ const MovieDetails = ({ movie }) => {
 
       <Container className="text-white">
         <h3 className="h4 ">Overview:</h3>
-        <p className="">{movie?.overview}</p>
+        <p className="">{checkInformation(movie?.overview)}</p>
 
         <p>
           Director:{" "}
           <span aria-label="director's name">
-            {
+            {checkInformation(
               movie?.credits?.crew.find((person) => person?.job === "Director")
                 ?.name
-            }
+            )}
           </span>
         </p>
 
         <p>
           Screenplay:{" "}
           <span aria-label="movie's screenplay">
-            {
+            {checkInformation(
               movie?.credits?.crew.find(
                 (person) => person?.job === "Screenplay"
               )?.name
-            }
+            )}
           </span>
         </p>
 
         <p>
           Language:{" "}
           <span aria-label="movie's language">
-            {movie?.spoken_languages[0]?.name}
+            {checkInformation(movie?.spoken_languages[0]?.name)}
           </span>
         </p>
 
         <p>
-          Runtime: <span aria-label="movie's runtime">{movie?.runtime}min</span>
+          Runtime:{" "}
+          <span aria-label="movie's runtime">
+            {checkInformation(movie?.runtime)} min
+          </span>
         </p>
 
         <p>

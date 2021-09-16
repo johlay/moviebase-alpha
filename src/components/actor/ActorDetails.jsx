@@ -1,7 +1,7 @@
 import { intrepretActorGender } from "../../helpers/index";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { getImage } from "../../helpers/index";
+import { checkInformation, getImage } from "../../helpers/index";
 
 const ActorDetails = ({ actor }) => {
   return (
@@ -30,14 +30,14 @@ const ActorDetails = ({ actor }) => {
           <p className="m-1">
             Birthday:{" "}
             <span aria-label="text birthday" className="me-2">
-              {actor?.birthday}
+              {checkInformation(actor?.birthday)}
               {/* (current years old) */}
             </span>
           </p>
           <p className="m-1">
             Place of birth:{" "}
             <span aria-label="text place of birth" className="me-2">
-              {actor?.place_of_birth}
+              {checkInformation(actor?.place_of_birth)}
             </span>
           </p>
         </Col>
@@ -46,7 +46,7 @@ const ActorDetails = ({ actor }) => {
         <h3 className="h4">
           <u>Biography:</u>
         </h3>
-        <p className="">{actor?.biography}</p>
+        <p className="">{checkInformation(actor?.biography)}</p>
       </div>
     </>
   );
