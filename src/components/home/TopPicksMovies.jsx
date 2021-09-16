@@ -9,7 +9,7 @@ const TopPicksMovies = () => {
 
   return (
     <>
-      <h2 className="text-light py-3">
+      <h2 className="text-light py-3 h3" id="top-picks-movies-title">
         <u>Top picks</u>
       </h2>
       <MoviesList movies={data} />
