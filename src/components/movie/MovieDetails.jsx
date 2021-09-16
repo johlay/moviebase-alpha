@@ -13,7 +13,9 @@ const MovieDetails = ({ movie }) => {
         className="container-fluid d-flex flex-row align-items-end text-white mb-5 "
         style={{
           height: "800px",
-          backgroundImage: `url(${getImage(500, movie?.backdrop_path)})`,
+          backgroundImage: `url(${
+            movie && getImage(500, movie?.backdrop_path)
+          })`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
