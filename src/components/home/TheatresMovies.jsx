@@ -9,9 +9,9 @@ const TheatresMovies = () => {
 
   return (
     <>
-      <h2 className="text-light py-3 h3" id="theatres-movies-title">
-        <u>In theatres</u>
-      </h2>
+      <h3 className="text-light py-3" id="theatres-movies-title">
+        In theatres
+      </h3>
       <MoviesList movies={data} />
     </>
   );

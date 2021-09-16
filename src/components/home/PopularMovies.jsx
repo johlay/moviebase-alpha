@@ -7,9 +7,9 @@ const PopularMovies = () => {
 
   return (
     <>
-      <h2 className="text-light py-3 h3" id="popular-movies-title">
-        <u>Popular movies</u>
-      </h2>
+      <h3 className="text-light py-3" id="popular-movies-title">
+        Popular movies
+      </h3>
       <MoviesList movies={data} />
     </>
   );

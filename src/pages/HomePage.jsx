@@ -7,8 +7,9 @@ import QuickNavigation from "../components/home/QuickNavigation";
 
 const HomePage = () => {
   return (
-    <Container className="my-3">
+    <Container className="my-5">
       <QuickNavigation />
+      <hr className="bg-white my-5" />
       <TrendingMovies />
       <hr className="bg-white my-5" />
       <TheatresMovies />

@@ -23,9 +23,9 @@ const TrendingMovies = () => {
   return (
     <>
       <div className="py-3">
-        <h2 className="text-light py-3 h3" id="trending-movies-title">
-          <u>Trending movies</u>
-        </h2>
+        <h3 className="text-light py-3 " id="trending-movies-title">
+          Trending movies
+        </h3>
         <Row>
           <Col className="d-flex align-items-center" xs="auto">
             <p className="text-white fs-5 m-0 ps-2">Show by:</p>
