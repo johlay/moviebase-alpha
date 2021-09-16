@@ -15,7 +15,9 @@ const MovieActors = ({ actors }) => {
           actors.map((actor) => {
             if (actor.profile_path === null) return null;
 
-            return <MovieActorDetail actor={actor} id={actor.id} />;
+            return (
+              <MovieActorDetail key={actor.id} actor={actor} id={actor.id} />
+            );
           })}
       </Row>
     </Container>
