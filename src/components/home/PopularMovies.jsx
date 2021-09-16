@@ -7,7 +7,7 @@ const PopularMovies = () => {
 
   return (
     <>
-      <h2 className="text-light py-3">
+      <h2 className="text-light py-3 h3" id="popular-movies-title">
         <u>Popular movies</u>
       </h2>
       <MoviesList movies={data} />

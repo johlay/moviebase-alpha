@@ -23,7 +23,7 @@ const TrendingMovies = () => {
   return (
     <>
       <div className="py-3">
-        <h2 className="text-light py-3">
+        <h2 className="text-light py-3 h3" id="trending-movies-title">
           <u>Trending movies</u>
         </h2>
         <Row>
