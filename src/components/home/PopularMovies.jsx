@@ -1,9 +1,21 @@
+import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { getPopularMovies } from "../../services/TmdbApi";
 import MoviesList from "./MoviesList";
+import Pagination from "../partials/Pagination";
 
 const PopularMovies = () => {
-  const { data } = useQuery(["get-popular-movies"], () => getPopularMovies());
+  const [page, setPage] = useState({ page: 1 });
+  const { data, refetch } = useQuery(
+    ["get-popular-movies"],
+    () => getPopularMovies(page.page),
+    { keepPreviousData: true }
+  );
+
+  useEffect(() => {
+    // refetch data when page is changed
+    refetch();
+  }, [page]);
 
   return (
     <>
@@ -11,6 +23,11 @@ const PopularMovies = () => {
         Popular movies
       </h3>
       <MoviesList movies={data} />
+      <Pagination
+        page={page}
+        setPage={setPage}
+        totalPages={data?.total_pages}
+      />
     </>
   );
 };

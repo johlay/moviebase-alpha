@@ -1,11 +1,21 @@
+import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { getMoviesInTheatres } from "../../services/TmdbApi";
 import MoviesList from "./MoviesList";
+import Pagination from "../partials/Pagination";
 
 const TheatresMovies = () => {
-  const { data } = useQuery(["get-theatres-movies"], () =>
-    getMoviesInTheatres()
+  const [page, setPage] = useState({ page: 1 });
+  const { data, refetch } = useQuery(
+    ["get-theatres-movies"],
+    () => getMoviesInTheatres(page.page),
+    { keepPreviousData: true }
   );
+
+  useEffect(() => {
+    // refetch data when page is changed
+    refetch();
+  }, [page]);
 
   return (
     <>
@@ -13,6 +23,11 @@ const TheatresMovies = () => {
         In theatres
       </h3>
       <MoviesList movies={data} />
+      <Pagination
+        page={page}
+        setPage={setPage}
+        totalPages={data?.total_pages}
+      />
     </>
   );
 };

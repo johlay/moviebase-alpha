@@ -32,25 +32,25 @@ const getMoviesByGenre = async (genreId, page) => {
  * Movies - services related to movies
  */
 
-const getMoviesInTheatres = async () => {
+const getMoviesInTheatres = async (page = "") => {
   const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/now_playing?${API_KEY}`
+    `https://api.themoviedb.org/3/movie/now_playing?${API_KEY}&page=${page}`
   );
 
   return response.data;
 };
 
-const getPopularMovies = async () => {
+const getPopularMovies = async (page = "") => {
   const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/popular?${API_KEY}`
+    `https://api.themoviedb.org/3/movie/popular?${API_KEY}&page=${page}`
   );
 
   return response.data;
 };
 
-const getTopPicksMovies = async () => {
+const getTopPicksMovies = async (page = "") => {
   const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/top_rated?${API_KEY}`
+    `https://api.themoviedb.org/3/movie/top_rated?${API_KEY}&page=${page}`
   );
 
   return response.data;
@@ -72,9 +72,9 @@ const getSimiliarMovies = async (movieId) => {
   return response.data;
 };
 
-const getTrendingMoviesByTimeWindow = async (timeWindow) => {
+const getTrendingMoviesByTimeWindow = async (timeWindow, page = "") => {
   const response = await axios.get(
-    `https://api.themoviedb.org/3/trending/movies/${timeWindow}?${API_KEY}`
+    `https://api.themoviedb.org/3/trending/movies/${timeWindow}?${API_KEY}&page=${page}`
   );
 
   return response.data;

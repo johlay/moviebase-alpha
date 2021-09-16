@@ -6,19 +6,28 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import MoviesList from "./MoviesList";
+import Pagination from "../partials/Pagination";
 
 const TrendingMovies = () => {
-  // show day/week.
-  const [timeWindow, setTimeWindow] = useState("day");
+  const [page, setPage] = useState({ page: 1 });
+  const [timeWindow, setTimeWindow] = useState("day"); // show day/week.
   const { data, refetch } = useQuery(
     ["get-trending-movies-by-time-window"],
-    () => getTrendingMoviesByTimeWindow(timeWindow)
+    () => getTrendingMoviesByTimeWindow(timeWindow, page.page)
   );
 
   useEffect(() => {
+    // reset page to 1.
+    setPage({ page: 1 });
+
     // refetch data when user switches between day/week button.
     refetch();
   }, [timeWindow]);
+
+  useEffect(() => {
+    // refetch data when user changes page
+    refetch();
+  }, [page]);
 
   return (
     <>
@@ -53,6 +62,11 @@ const TrendingMovies = () => {
         </Row>
       </div>
       <MoviesList movies={data} />
+      <Pagination
+        page={page}
+        setPage={setPage}
+        totalPages={data?.total_pages}
+      />
     </>
   );
 };

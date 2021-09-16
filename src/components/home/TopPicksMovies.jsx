@@ -1,11 +1,21 @@
+import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { getTopPicksMovies } from "../../services/TmdbApi";
 import MoviesList from "./MoviesList";
+import Pagination from "../partials/Pagination";
 
 const TopPicksMovies = () => {
-  const { data } = useQuery(["get-top-rated-movies"], () =>
-    getTopPicksMovies()
+  const [page, setPage] = useState({ page: 1 });
+  const { data, refetch } = useQuery(
+    ["get-top-rated-movies"],
+    () => getTopPicksMovies(page.page),
+    { keepPreviousData: true }
   );
+
+  useEffect(() => {
+    // refetch data when page is changed
+    refetch();
+  }, [page]);
 
   return (
     <>
@@ -13,6 +23,11 @@ const TopPicksMovies = () => {
         Top picks
       </h3>
       <MoviesList movies={data} />
+      <Pagination
+        page={page}
+        setPage={setPage}
+        totalPages={data?.total_pages}
+      />
     </>
   );
 };
