@@ -19,10 +19,12 @@ const SimiliarMovie = ({ movies }) => {
   return (
     <>
       <Carousel
-        className="bg-dark rounded my-5"
+        className="bg-dark rounded my-5 pt-4"
         indicators={true}
+        interval={2000}
         prevIcon={leftArrowButton}
         nextIcon={rightArrowButton}
+        slide={false}
       >
         {movies &&
           movies?.results?.map((movie, index) => {
@@ -30,18 +32,19 @@ const SimiliarMovie = ({ movies }) => {
               return (
                 <Carousel.Item key={movie.id}>
                   <img
-                    className="d-block w-25 mx-auto"
+                    className="d-block w-25 mx-auto rounded"
                     src={getImage(200, movie?.poster_path)}
                     alt="First slide"
                   />
-                  <Carousel.Caption>
+
+                  <div className="text-center">
                     <Link
-                      className="btn btn-dark btn-lg"
+                      className="btn btn-secondary my-3 btn-lg"
                       to={`/movies/${movie.id}`}
                     >
                       Go to movie
                     </Link>
-                  </Carousel.Caption>
+                  </div>
                 </Carousel.Item>
               );
             } else {
