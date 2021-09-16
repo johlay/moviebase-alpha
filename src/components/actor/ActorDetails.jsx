@@ -1,6 +1,7 @@
 import { intrepretActorGender } from "../../helpers/index";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import { getImage } from "../../helpers/index";
 
 const ActorDetails = ({ actor }) => {
   return (
@@ -9,9 +10,7 @@ const ActorDetails = ({ actor }) => {
         <Col xs="auto">
           <img
             className="rounded"
-            src={
-              actor && `https://image.tmdb.org/t/p/w300${actor?.profile_path}`
-            }
+            src={actor && getImage(300, actor?.profile_path)}
             alt="actor profile"
           />
         </Col>

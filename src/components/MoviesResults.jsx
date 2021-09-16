@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { NavLink } from "react-router-dom";
+import { getImage } from "../helpers/";
 
 const MoviesResults = ({ movies }) => {
   return (
@@ -14,7 +15,7 @@ const MoviesResults = ({ movies }) => {
               <Col xs="auto">
                 <img
                   className={`${styles.movie_poster}`}
-                  src={`https://image.tmdb.org/t/p/w200${movie?.poster_path}`}
+                  src={getImage(200, movie?.poster_path)}
                   alt="movie poster"
                 />
               </Col>

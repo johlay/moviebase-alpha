@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { getImage } from "../../helpers";
 
 const MoviesList = ({ movies }) => {
   const history = useHistory();
@@ -21,7 +22,7 @@ const MoviesList = ({ movies }) => {
                 <Card.Img
                   className={`${styles.movie_poster}`}
                   variant="top"
-                  src={`https://image.tmdb.org/t/p/w200${movie?.poster_path}`}
+                  src={getImage(200, movie?.poster_path)}
                   alt="movie poster"
                 />
                 <Card.Body>

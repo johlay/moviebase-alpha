@@ -28,7 +28,6 @@ const SearchField = ({ handleSubmit, isLoading }) => {
             aria-label="search-text"
             aria-describedby="search-text"
             ref={searchRef}
-            // onChange={(e) => setSearchText(e.target.value)}
           />
           <Button disabled={isLoading} variant="dark" type="submit">
             Search

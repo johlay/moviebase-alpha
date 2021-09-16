@@ -5,6 +5,7 @@ import {
   faArrowCircleLeft,
   faArrowCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
+import { getImage } from "../../helpers";
 
 const SimiliarMovie = ({ movies }) => {
   const leftArrowButton = (
@@ -30,7 +31,7 @@ const SimiliarMovie = ({ movies }) => {
                 <Carousel.Item key={movie.id}>
                   <img
                     className="d-block w-25 mx-auto"
-                    src={`https://image.tmdb.org/t/p/w200${movie?.poster_path}`}
+                    src={getImage(200, movie?.poster_path)}
                     alt="First slide"
                   />
                   <Carousel.Caption>

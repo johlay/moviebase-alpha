@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import { getImage } from "../../helpers";
 // import MovieActorDetail from "./MovieActorDetail";
 
 const MovieActors = ({ actors }) => {
@@ -29,7 +30,7 @@ const MovieActors = ({ actors }) => {
                 >
                   <Card.Img
                     variant="top"
-                    src={`https://image.tmdb.org/t/p/w200${actor?.profile_path}`}
+                    src={getImage(200, actor?.profile_path)}
                   />
                   <Card.Body>
                     <Card.Title>{actor?.name}</Card.Title>

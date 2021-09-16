@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { getImage } from "../../helpers";
 
 const MovieDetails = ({ movie }) => {
   return (
@@ -12,7 +13,7 @@ const MovieDetails = ({ movie }) => {
         className="container-fluid d-flex flex-row align-items-end text-white mb-5 "
         style={{
           height: "800px",
-          backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie?.backdrop_path})`,
+          backgroundImage: `url(${getImage(500, movie?.backdrop_path)})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
@@ -52,34 +53,6 @@ const MovieDetails = ({ movie }) => {
       </div>
 
       <Container className="text-white">
-        {/* <Row className="my-5">
-          <Col xs="auto">
-            <img
-              src={`https://image.tmdb.org/t/p/w200${movie?.poster_path}`}
-              alt="movie poster"
-            />
-          </Col>
-
-          <Col className="d-flex flex-column justify-content-center">
-            <h2 className="h3">{movie?.title}</h2>
-            <p className="m-0">
-              Genres:{" "}
-              <span label="text genres">
-                {movie?.genres.map((genre) => genre.name + ", ")}
-              </span>
-            </p>
-            <p>
-              <span
-                aria-label="icon of star with movie rating"
-                className="me-2"
-              >
-                <FontAwesomeIcon icon={faStar} size="1x" color="yellow" />
-              </span>
-              {movie?.vote_average}
-            </p>
-          </Col>
-        </Row> */}
-
         <h3 className="h4 ">Overview:</h3>
         <p className="">{movie?.overview}</p>
 
