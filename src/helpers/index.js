@@ -39,5 +39,17 @@ export const checkInformation = (detail) => {
 
 // finalize the url for showing specific image from TMDB API, by declaring width and path (profile-path, backdrop-path or poster-path)
 export const getImage = (width, path) => {
-  return `https://image.tmdb.org/t/p/w${width}` + path;
+  switch (path) {
+    case null: {
+      return "";
+    }
+
+    case undefined: {
+      return "";
+    }
+
+    case path: {
+      return `https://image.tmdb.org/t/p/w${width}` + path;
+    }
+  }
 };
