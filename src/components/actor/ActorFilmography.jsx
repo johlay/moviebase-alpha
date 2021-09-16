@@ -16,9 +16,8 @@ const ActorFilmography = ({ actorId }) => {
         <h3 className="h4">
           <u>Filmography:</u>
         </h3>
-        <hr />
 
-        <Tabs id="tab_actor" defaultActiveKey="acting" className="my-5">
+        <Tabs id="tab_actor" defaultActiveKey="acting" className="my-3">
           <Tab
             eventKey="acting"
             title="Acting"
