@@ -40,6 +40,7 @@ const MoviePage = () => {
         // only returns/saves the recently viewed movies (9 movies() from this list which consists of 10 movies.
         const newList = value?.results?.filter((movie, index) => {
           if (index < 9) return movie;
+          else return "";
         });
 
         // save new list to local storage.

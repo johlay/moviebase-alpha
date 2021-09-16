@@ -1,4 +1,4 @@
-import { Link, animateScroll } from "react-scroll";
+import { Link } from "react-scroll";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 

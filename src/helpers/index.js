@@ -51,5 +51,9 @@ export const getImage = (width, path) => {
     case path: {
       return `https://image.tmdb.org/t/p/w${width}` + path;
     }
+
+    default: {
+      break;
+    }
   }
 };
