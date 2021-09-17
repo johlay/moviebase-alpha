@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 const QuickNavigation = () => {
   return (
     <>
-      <nav className="mt-5">
+      <nav className="mt-5" id="quick-navigation">
         <Row className="bg-dark rounded text-white py-3 d-flex align-items-center">
           <Col>
             <h2 className="h3 m-0 text-center pe-none">Go to:</h2>
