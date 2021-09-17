@@ -10,6 +10,7 @@ import MoviePage from "./pages/MoviePage";
 import ActorPage from "./pages/ActorPage";
 import SearchPage from "./pages/SearchPage";
 import GlobalLoadingIndicator from "./components/partials/GlobalLoadingIndicator.jsx";
+import MoviesContextProvider from "./contexts/MoviesContextProvider";
 
 function App() {
   // create a react query - client
@@ -23,39 +24,41 @@ function App() {
       <ReactQueryDevtools initialIsOpen={false} />
 
       <div className="App">
-        <BrowserRouter>
-          <Navigation />
-          <GlobalLoadingIndicator />
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
+        <MoviesContextProvider>
+          <BrowserRouter>
+            <Navigation />
+            <GlobalLoadingIndicator />
+            <Switch>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
 
-            <Route path="/actors/:actorId">
-              <ActorPage />
-            </Route>
+              <Route path="/actors/:actorId">
+                <ActorPage />
+              </Route>
 
-            <Route path="/movies/:movieId">
-              <MoviePage />
-            </Route>
+              <Route path="/movies/:movieId">
+                <MoviePage />
+              </Route>
 
-            <Route exact path="/genres/:genreId">
-              <GenrePage />
-            </Route>
+              <Route exact path="/genres/:genreId">
+                <GenrePage />
+              </Route>
 
-            <Route exact path="/genres">
-              <GenresPage />
-            </Route>
+              <Route exact path="/genres">
+                <GenresPage />
+              </Route>
 
-            <Route path="/search">
-              <SearchPage />
-            </Route>
+              <Route path="/search">
+                <SearchPage />
+              </Route>
 
-            <Route>
-              <NotFoundPage />
-            </Route>
-          </Switch>
-        </BrowserRouter>
+              <Route>
+                <NotFoundPage />
+              </Route>
+            </Switch>
+          </BrowserRouter>
+        </MoviesContextProvider>
       </div>
     </QueryClientProvider>
   );
