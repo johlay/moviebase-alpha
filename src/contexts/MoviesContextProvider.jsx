@@ -9,21 +9,17 @@ const MoviesContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (!value) {
-      console.log("storage key is NOT found");
-
       return;
     }
 
     // when component mounts, check if storage key: "recently-viewed" is stored in local storage. If true, load it to state.
     if (value) {
-      console.log("storage key 'recently-viewed' is found:", value);
-
       return setRecentMovies(value);
     }
   }, []);
 
   useEffect(() => {
-    // as soon as state: "recentMovies" updates then save information to local-storage
+    // as soon as state: "recentMovies" updates then save information to local storage.
     if (recentMovies.results.length > 0) setValue(recentMovies);
   }, [recentMovies]);
 

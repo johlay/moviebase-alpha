@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { search } from "../services/TmdbApi";
 import { useUrlSearchParams } from "use-url-search-params";
 import { Container } from "react-bootstrap";
-import MoviesResults from "../components/MoviesResults";
+import MoviesResults from "../components/movies/MoviesResults";
 import SearchField from "../components/search/SearchField";
 import Pagination from "../components/partials/Pagination";
 

@@ -1,9 +1,9 @@
-import styles from "../css/MoviesResults.module.css";
+import styles from "../../css/MoviesResults.module.css";
 import dayjs from "dayjs";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { NavLink } from "react-router-dom";
-import { getImage } from "../helpers/";
+import { getImage } from "../../helpers";
 
 const MoviesResults = ({ movies }) => {
   return (

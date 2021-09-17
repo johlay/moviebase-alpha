@@ -1,5 +1,5 @@
 import Container from "react-bootstrap/Container";
-import MoviesList from "../home/MoviesList";
+import MoviesList from "../movies/MoviesList";
 import useMovies from "../../hooks/useMovies";
 
 const RecentlyViewedMovies = () => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { getPopularMovies } from "../../services/TmdbApi";
-import MoviesList from "./MoviesList";
+import MoviesList from "../movies/MoviesList";
 import Pagination from "../partials/Pagination";
 
 const PopularMovies = () => {

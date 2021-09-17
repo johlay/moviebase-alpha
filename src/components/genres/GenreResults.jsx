@@ -1,4 +1,4 @@
-import MoviesResults from "../MoviesResults";
+import MoviesResults from "../movies/MoviesResults";
 
 const GenreResults = ({ movies }) => {
   return (

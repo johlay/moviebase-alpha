@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import MoviesList from "./MoviesList";
+import MoviesList from "../movies/MoviesList";
 import Pagination from "../partials/Pagination";
 
 const TrendingMovies = () => {
