@@ -24,7 +24,7 @@ const TrendingMovies = () => {
   useEffect(() => {
     // refetch data when user changes page
     refetch();
-  }, [page]);
+  }, [page, refetch]);
 
   return (
     <>

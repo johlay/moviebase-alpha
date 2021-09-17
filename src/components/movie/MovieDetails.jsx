@@ -38,7 +38,7 @@ const MovieDetails = ({ movie }) => {
                 Genres:{" "}
                 <span label="text genres">
                   {checkInformation(
-                    movie?.genres?.map((genre) => genre.name + ", ")
+                    movie?.genres?.map((genre) => genre?.name + ", ")
                   )}
                 </span>
               </p>

@@ -12,7 +12,7 @@ const GenreBox = ({ genre, id }) => {
         }
         className={`bg-secondary rounded ${styles.genre_box}`}
       >
-        <p className="text-white m-0">{genre.name}</p>
+        <p className="text-white m-0">{genre?.name}</p>
       </div>
     </>
   );

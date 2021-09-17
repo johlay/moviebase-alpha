@@ -8,7 +8,7 @@ const SearchField = ({ handleSubmit, isLoading }) => {
   const searchRef = useRef("");
 
   useEffect(() => {
-    // focuses on search field when component mounts
+    // focuses on search field when component mounts.
     searchRef.current.focus();
   }, []);
   return (

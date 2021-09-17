@@ -30,7 +30,7 @@ const SimiliarMovie = ({ movies }) => {
           movies?.results?.map((movie, index) => {
             if (index < 5) {
               return (
-                <Carousel.Item key={movie.id}>
+                <Carousel.Item key={movie?.id}>
                   <img
                     className="d-block w-25 mx-auto rounded"
                     src={getImage(200, movie?.poster_path)}
@@ -40,7 +40,7 @@ const SimiliarMovie = ({ movies }) => {
                   <div className="text-center">
                     <Link
                       className="btn btn-secondary my-3 btn-lg"
-                      to={`/movies/${movie.id}`}
+                      to={`/movies/${movie?.id}`}
                     >
                       Go to movie
                     </Link>

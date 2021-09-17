@@ -33,7 +33,7 @@ const SearchPage = () => {
   useEffect(() => {
     // refetch data when page is changed
     refetch();
-  }, [page]);
+  }, [page, refetch]);
 
   return (
     <Container>

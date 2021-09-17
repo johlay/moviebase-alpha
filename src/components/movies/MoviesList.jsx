@@ -11,7 +11,7 @@ const MoviesList = ({ movies }) => {
   return (
     <div className={`${styles.movies_container}`}>
       {movies &&
-        movies.results.map((movie, index) => {
+        movies?.results?.map((movie, index) => {
           if (index < 10) {
             return (
               <Card

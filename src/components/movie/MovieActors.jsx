@@ -1,11 +1,8 @@
-import { useHistory } from "react-router";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import MovieActorDetail from "./MovieActorDetail";
 
 const MovieActors = ({ actors }) => {
-  const history = useHistory();
-
   return (
     <Container className="text-white my-5">
       <h3 className="h4 ">Actors</h3>

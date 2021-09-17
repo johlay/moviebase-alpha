@@ -33,7 +33,7 @@ const GenrePage = () => {
 
     // refetch data when page is changed.
     refetch();
-  }, [page]);
+  }, [genre, page, refetch, setValue]);
 
   if (!location?.state?.genre && !value)
     return (

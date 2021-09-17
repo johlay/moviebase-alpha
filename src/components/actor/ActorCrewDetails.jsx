@@ -19,14 +19,14 @@ const ActorCrewDetails = ({ crew }) => {
         <tbody>
           {crew?.map((movie) => {
             return (
-              <tr key={movie.id}>
-                <td>{movie.release_date}</td>
-                <td>{movie.title}</td>
-                <td>{movie.job}</td>
+              <tr key={movie?.id}>
+                <td>{movie?.release_date}</td>
+                <td>{movie?.title}</td>
+                <td>{movie?.job}</td>
                 <td className="text-center">
                   <NavLink
                     className="btn btn-light text-dark"
-                    to={`/movies/${movie.id}`}
+                    to={`/movies/${movie?.id}`}
                   >
                     Go to
                   </NavLink>

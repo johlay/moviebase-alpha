@@ -15,7 +15,7 @@ const TopPicksMovies = () => {
   useEffect(() => {
     // refetch data when page is changed
     refetch();
-  }, [page]);
+  }, [page, refetch]);
 
   return (
     <>

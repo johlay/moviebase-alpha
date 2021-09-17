@@ -16,12 +16,13 @@ const MoviesContextProvider = ({ children }) => {
     if (value) {
       return setRecentMovies(value);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     // as soon as state: "recentMovies" updates then save information to local storage.
     if (recentMovies.results.length > 0) setValue(recentMovies);
-  }, [recentMovies]);
+  }, [recentMovies, setValue]);
 
   // check the incoming data
   const checkMovieData = (movieData) => {
