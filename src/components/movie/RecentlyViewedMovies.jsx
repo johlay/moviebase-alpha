@@ -1,20 +1,17 @@
 import Container from "react-bootstrap/Container";
 import MoviesList from "../home/MoviesList";
-import useLocalStorage from "../../hooks/useLocalStorage";
-import { useEffect } from "react";
+import useMovies from "../../hooks/useMovies";
 
 const RecentlyViewedMovies = () => {
-  // get value from local storage key: "recently-viewed".
-  const [value] = useLocalStorage("recently-viewed");
-
-  useEffect(() => {}, [value]);
+  // get value from useMovies hook: "recentMovies".
+  const { recentMovies } = useMovies();
 
   return (
     <Container className="my-5">
       <hr className="bg-white my-5" />
       <h3 className="text-white my-3">Recently Viewed Movies</h3>
 
-      <MoviesList movies={value} />
+      <MoviesList movies={recentMovies} />
     </Container>
   );
 };

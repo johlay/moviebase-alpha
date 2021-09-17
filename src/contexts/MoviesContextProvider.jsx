@@ -73,7 +73,7 @@ const MoviesContextProvider = ({ children }) => {
   };
 
   return (
-    <MoviesContext.Provider value={{ checkMovieData }}>
+    <MoviesContext.Provider value={{ recentMovies, checkMovieData }}>
       {children}
     </MoviesContext.Provider>
   );

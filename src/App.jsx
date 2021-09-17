@@ -9,6 +9,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import MoviePage from "./pages/MoviePage";
 import ActorPage from "./pages/ActorPage";
 import SearchPage from "./pages/SearchPage";
+import RecentlyViewedMovies from "./components/movie/RecentlyViewedMovies";
 import GlobalLoadingIndicator from "./components/partials/GlobalLoadingIndicator.jsx";
 import MoviesContextProvider from "./contexts/MoviesContextProvider";
 
@@ -57,6 +58,7 @@ function App() {
                 <NotFoundPage />
               </Route>
             </Switch>
+            <RecentlyViewedMovies />
           </BrowserRouter>
         </MoviesContextProvider>
       </div>
