@@ -9,7 +9,7 @@ const RecentlyViewedMovies = () => {
   return (
     <Container className="my-5">
       <hr className="bg-white my-5" />
-      <h3 className="text-white my-3">Recently Viewed Movies</h3>
+      <h3 className="h2 text-white my-4">Recently Viewed Movies</h3>
 
       <MoviesList movies={recentMovies} />
     </Container>
