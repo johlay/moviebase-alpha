@@ -6,3 +6,10 @@
   cursor: pointer;
   transform: scale(1.05);
 }
+
+/* apply styles starting from small devices */
+@media (max-width: 577px) {
+  .actor_card {
+    width: 8rem;
+  }
+}
