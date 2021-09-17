@@ -9,7 +9,7 @@ const GenresPage = () => {
   return (
     <Container className="my-3">
       <h2 className="text-center text-light py-3">
-        <u>Genres</u>
+        Genres
       </h2>
       <GenresList genres={data} />
     </Container>
