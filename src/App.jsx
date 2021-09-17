@@ -12,6 +12,7 @@ import SearchPage from "./pages/SearchPage";
 import RecentlyViewedMovies from "./components/movie/RecentlyViewedMovies";
 import GlobalLoadingIndicator from "./components/partials/GlobalLoadingIndicator.jsx";
 import MoviesContextProvider from "./contexts/MoviesContextProvider";
+import ScrollTop from "./components/partials/ScrollTop";
 
 function App() {
   // create a react query - client
@@ -27,6 +28,7 @@ function App() {
       <div className="App">
         <MoviesContextProvider>
           <BrowserRouter>
+            <ScrollTop />
             <Navigation />
             <GlobalLoadingIndicator />
             <Switch>
